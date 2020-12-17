@@ -1,6 +1,6 @@
 package com.herokuapp.theinternet.pages;
 
-import org.apache.logging.log4j.core.Logger;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -64,6 +64,16 @@ public class BasePageObject {
     protected void type( By locator, String text){
         waitForVisibility(locator, 5);
         find(locator).sendKeys(text);
+    }
+
+    //Read page URL
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
+
+    //Report if element is visible
+    public Boolean isElementVisible(By locator){
+        return driver.findElement(locator) != null;
     }
 
 }
