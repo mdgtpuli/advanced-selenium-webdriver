@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.awt.event.WindowListener;
+
 public class AlertTests extends TestUtilities {
 
     @Test(enabled = false)
@@ -45,7 +47,7 @@ public class AlertTests extends TestUtilities {
         log.info("Test completed!");
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void clickJSConfirmTest(){
         log.info("Starting test: clickJSConfirmTest");
         //Open Welcome page
@@ -66,23 +68,35 @@ public class AlertTests extends TestUtilities {
         //Verify the test result: "You clicked: Ok"
         Assert.assertEquals("You clicked: Ok", alertsPage.getResultMessage(), "Incorrect result message: ");
 
+        log.info("Test completed!");
+
     }
 
     @Test(enabled = false)
     public void cancelJSConfirmTest(){
+        log.info("Starting test: cancelJSConfirmTestc ");
         //Open Welcome page
+        WelcomePage welcomePage = new WelcomePage(driver, log);
+        welcomePage.openWelcomePage();
 
         //Open JavaScripts alerts by clicking on the link
+        AlertsPage alertsPage= welcomePage.openAlertPage();
 
         //Click on on Click for JS Confirm button
+        alertsPage.clickJSConfirmButton();
+        Alert jsConfirm = alertsPage.swicthToAlert();
 
         //Cancel Alert
+        jsConfirm.dismiss();
 
         //Verify the test result: "You clicked: Cancel"
+        Assert.assertEquals("You clicked: Cancel", alertsPage.getResultMessage(), "Incorrect result message: ");
+
+        log.info("Test completed!");
 
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void confirmJSPrompt(String message){
         //Open Welcome page
 
