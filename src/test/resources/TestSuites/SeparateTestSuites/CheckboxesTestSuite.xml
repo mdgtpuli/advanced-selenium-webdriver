@@ -2,7 +2,7 @@
 
 <suite name="CheckboxesTestSuite" verbose="1">
 	
-	<test name="PositiveTest">
+	<test name="DropdownTest">
 		<classes>
 			<class name="com.herokuapp.theinternet.checkboxTests.CheckboxTests" />
 		</classes>
