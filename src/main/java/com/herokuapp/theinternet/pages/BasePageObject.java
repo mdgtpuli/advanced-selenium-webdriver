@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 
 public class BasePageObject {
 
@@ -30,6 +32,11 @@ public class BasePageObject {
     //Find element by locator
     protected WebElement find(By locator){
         return driver.findElement(locator);
+    }
+
+    //Find several elements by locator
+    protected List<WebElement> findAll(By locator){
+        return driver.findElements(locator);
     }
 
     //Wait for a specific condition to appear
