@@ -24,6 +24,11 @@ public class AlertsPage extends BasePageObject{
 
     }
 
+    //Click on Click for JS Confirm button
+    public void clickJSConfirmButton(){
+        find(jsConfirmLocator).click();
+    }
+
     //Get result message
     public String getResultMessage(){
         return find(resultLocator).getText();
