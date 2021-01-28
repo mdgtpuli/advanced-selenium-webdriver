@@ -7,5 +7,4 @@
 			<class name="com.herokuapp.theinternet.alertsTests.AlertTests" />
 		</classes>
 	</test>
-	
 </suite>

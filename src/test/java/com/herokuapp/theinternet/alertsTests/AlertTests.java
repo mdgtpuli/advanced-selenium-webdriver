@@ -8,11 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.awt.event.WindowListener;
 
 public class AlertTests extends TestUtilities {
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void clickJSAlertTest(){
         log.info("Starting test: clickJSAlertTest ");
 
@@ -47,7 +46,7 @@ public class AlertTests extends TestUtilities {
         log.info("Test completed!");
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void clickJSConfirmTest(){
         log.info("Starting test: clickJSConfirmTest");
         //Open Welcome page
@@ -72,7 +71,7 @@ public class AlertTests extends TestUtilities {
 
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void cancelJSConfirmTest(){
         log.info("Starting test: cancelJSConfirmTestc ");
         //Open Welcome page
@@ -97,30 +96,57 @@ public class AlertTests extends TestUtilities {
     }
 
     @Test(enabled = true)
-    public void confirmJSPrompt(String message){
+    public void confirmJSPrompt(){
+        String message = "Hello there!";
+
+        log.info("Starting test: confirmJSPrompt ");
         //Open Welcome page
+        WelcomePage welcomePage = new WelcomePage(driver, log);
+        welcomePage.openWelcomePage();
 
         //Open JavaScripts alerts by clicking on the link
+        AlertsPage alertsPage= welcomePage.openAlertPage();
 
         //Click on Click for JS Prompt
+        alertsPage.clickJSPromptButton();
+        Alert JSPrompt = alertsPage.swicthToAlert();
 
         //Enter message in input box
+        JSPrompt.sendKeys(message);
+        JSPrompt.accept();
 
         //Verify the test result: "You entered: " + message
-    }
+        Assert.assertEquals(alertsPage.getResultMessage(), "You entered: "+ message,  "Incorrect input message: ");
 
-    @Test(enabled = false)
-    public void cancelJSPrompt(String message){
+        log.info("Test completed!");
+
+    }
+    @Test(enabled = true)
+    public void cancelJSPrompt(){
+        log.info("Starting test: cancelJSPrompt ");
+
+        String message = "Cancel this!";
+
         //Open Welcome page
+        WelcomePage welcomePage = new WelcomePage(driver, log);
+        welcomePage.openWelcomePage();
 
         //Open JavaScripts alerts by clicking on the link
+        AlertsPage alertsPage= welcomePage.openAlertPage();
 
         //Click on Click for JS Prompt
+        alertsPage.clickJSPromptButton();
+        Alert JSPrompt = alertsPage.swicthToAlert();
 
         //Enter message in input box
+        JSPrompt.sendKeys(message);
 
         //Cancel JS prompt
+        JSPrompt.dismiss();
 
         //Verify the test result: "You entered: null"
+        Assert.assertEquals(alertsPage.getResultMessage(), "You entered: null",  "Incorrect input message: ");
+
+        log.info("Test completed!");
     }
 }
