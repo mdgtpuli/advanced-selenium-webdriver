@@ -29,7 +29,8 @@ public class WindowsTests extends TestUtilities {
         //Verify the content of the new page contains text "new window"
         log.info("Starting assertions");
         SoftAssert soft = new SoftAssert();
-        soft.assertTrue(newWindowsPage.getCurrentPageSource().contains(expectedText));
+        soft.assertTrue(newWindowsPage.getCurrentPageSource().contains(expectedText),
+                "The content of the new page does not contain the expected message");
         soft.assertAll();
 
         log.info("Test completed!");

@@ -89,6 +89,12 @@ public class BasePageObject {
         return driver.switchTo().alert();
     }
 
+    /** Switch to iFrame using it's locator */
+    protected void switchToFrame(By frameLocator) {
+        driver.switchTo().frame(find(frameLocator));
+    }
+
+
     //Ger URL from the current page from browser
     public String getCurrentPageUrl(){
         return driver.getCurrentUrl();
