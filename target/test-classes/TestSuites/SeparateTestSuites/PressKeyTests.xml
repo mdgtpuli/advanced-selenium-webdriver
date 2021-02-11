@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PositiveLoginTestSuite" verbose="1">
+
+    <test name="PressKeyTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.pressKeyTests.pressKeyTests">
+                <methods>
+                    <include name="pressEnterKeyTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PressKeyTest-FX">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.pressKeyTests.pressKeyTests">
+                <methods>
+                    <exclude name="pressEnterKeyTest"></exclude>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+
+
+</suite>

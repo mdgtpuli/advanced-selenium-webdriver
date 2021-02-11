@@ -2,6 +2,7 @@ package com.herokuapp.theinternet.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -126,6 +127,19 @@ public class BasePageObject {
                 }
             }
         }
+    }
+
+    //Press key using locator
+    public void pressKey(By locator, Keys key){
+        log.info("Pressing key...");
+        driver.findElement(locator).sendKeys(key);
+    }
+
+    //Press key using Actions
+    public void pressKeyWithAction (Keys key){
+        log.info("Pressing key...");
+        Actions action = new Actions(driver);
+        action.sendKeys(key).build().perform();
     }
 
 }
