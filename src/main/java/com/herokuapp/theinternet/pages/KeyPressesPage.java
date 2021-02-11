@@ -26,11 +26,6 @@ public class KeyPressesPage extends BasePageObject {
         pressKey(bodyLocator,key);
     }
 
-    //Press key using actions
-   /* public void pressKeyWithAction(Keys key){
-        pressKeyWithAction(key);
-    }*/
-
     //Get result message from body
     public String getResultMessage(){
         String resultText = find(resultLocator).getText();
