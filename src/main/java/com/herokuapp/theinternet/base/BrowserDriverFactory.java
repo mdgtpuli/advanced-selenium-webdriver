@@ -23,6 +23,7 @@ public class BrowserDriverFactory {
         switch (browser) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                System.setProperty("webdriver.chrome.whitelistedIps", "");
                 driver.set(new ChromeDriver());
                 break;
 

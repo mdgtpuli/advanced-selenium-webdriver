@@ -10,9 +10,9 @@ public class uploadTest extends TestUtilities {
     @Test
     public void uploadFileTest(){
         log.info("Starting test: uploadFileTest");
-        String filePath= "src/main/resources/images/happy.png";
-        String fileName = "happi.png";
-        String expectedTest = "File Uploaded";
+        String filePath= "/src/main/resources/images/happy.png";
+        String fileName = "happy.png";
+        String expectedTest = "File Uploaded!";
 
         //Open File Upload page: http://the-internet.herokuapp.com/upload
         UploadFilePage uploadFilePage = new UploadFilePage(driver, log);
