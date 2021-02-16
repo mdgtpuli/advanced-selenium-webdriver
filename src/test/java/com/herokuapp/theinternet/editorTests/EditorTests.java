@@ -18,6 +18,11 @@ public class EditorTests extends TestUtilities {
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openWelcomePage();
 
+        //Scroll to the bottom of the page
+        sleep(3000);
+        welcomePage.scrollToTheBottom();
+        sleep(3000);
+
         //Click on WYSIWYG edit button and open new page
         EditorPage editorPage = welcomePage.openEditorPage();
         String actualText = editorPage.getEditorText();
